@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import FooterLogo from "/public/images/footer-logo.png";
+import top from "/public/images/tph-logo.png";
 
 const details = [
   {
@@ -79,7 +79,7 @@ const data = [
   >
     <div class="flex flex-row h-auto">
       <div class="flex flex-col gap-5">
-        <Image alt="footer logo" src={FooterLogo} width={75} height={75} />
+        <Image alt="footer logo" src={top} width={75} height={75} />
         {
           details.map((d) => {
             return (
