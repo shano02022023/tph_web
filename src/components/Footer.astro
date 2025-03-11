@@ -1,0 +1,128 @@
+---
+import { Image } from "astro:assets";
+import FooterLogo from "/public/images/footer-logo.png";
+
+const details = [
+  {
+    logo: null,
+    value: "(632) 8988-1000 (632) 8988-7000",
+  },
+  {
+    logo: null,
+    value:
+      "The Medical City Ortigas Avenue, Pasig City, Metro Manila, Philippines",
+  },
+  {
+    logo: null,
+    value: "qwerty@email.com",
+  },
+  {
+    logo: null,
+    value: "Media Request",
+  },
+];
+const data = [
+  {
+    title: "SERVICES",
+    items: [
+      "Find a Doctor",
+      "Our Institutes",
+      "Our Clinics",
+      "Price List",
+      "Operating Hours",
+      "Patients and Visitors Guide",
+    ],
+  },
+  {
+    title: "ABOUT US",
+    items: [
+      "About The Medical City",
+      "Corporate Profile",
+      "Mission and Vision",
+      "Core Values",
+      "Board of Directors",
+      "Quality and Safety",
+    ],
+  },
+  {
+    title: "Our Network",
+    items: [
+      "The Medical City Clark",
+      "The Medical City Iloilo",
+      "The Medical City Pangasinan",
+      "The Medical City South Luzon",
+      "Guam Regional Medical City",
+    ],
+  },
+  {
+    title: "Online Services",
+    items: [
+      "TeleConsultation Services",
+      "Online HMO Concierge",
+      "Online Screening",
+    ],
+  },
+  {
+    title: "LATEST NEWS",
+    items: [
+      "News and Health Articles",
+      "From the Desk of the President and CEO",
+      "News Network",
+    ],
+  },
+];
+---
+
+<div
+  class="flex flex-col gap-2 p-10 w-full h-auto bg-blue-700 justify-center items-center px-24"
+>
+  <div class="flex flex-row h-auto">
+    <div class="flex flex-col gap-5">
+      <Image alt="footer logo" src={FooterLogo} width={75} height={75} />
+      {
+        details.map((d) => {
+          return (
+            <div class="flex flex-row gap-2">
+              {d.logo == null ? <div>Logo Here</div> : <div>icon</div>}
+              <div class="flex flex-wrap text-white font-bold w-35 text-sm">
+                {d.value}
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+    <div class="flex flex-wrap gap-5">
+      {
+        data.map((d) => {
+          return (
+            <div class="flex flex-col gap-2">
+              <span class="text-lg font-bold text-white">{d.title}</span>
+              <ul>
+                {d.items.map((item) => {
+                  return <li class="text-sm text-white">{item}</li>;
+                })}
+              </ul>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</div>
+<div
+  class="flex flex-row gap-2 p-10 w-full h-auto bg-blue-900 justify-between items-between px-32"
+>
+  <div class="flex flex-row gap-10">
+    <span class="text-lg text-white">Privacy Policy</span>
+    <span class="text-white font-bold"> | </span>
+    <span class="text-lg text-white">Terms & Conditions</span>
+    <span class="text-white font-bold"> | </span>
+    <span class="text-lg text-white">Sitemap</span>
+  </div>
+  <div>
+    <span class="text-lg text-white"
+      >Copyright © 2020 The Medical City. All rights reserved.</span
+    >
+  </div>
+</div>
