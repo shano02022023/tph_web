@@ -1,38 +1,89 @@
 ---
+import "animate.css";
 import { Image } from "astro:assets";
-import TphLogo from '/public/images/tph-logo.png'
-
-
+import TphLogo from "/public/images/tph-logo.png";
+import { Icon } from "astro-icon/components";
 ---
 
-<div>
+<div class="animate__animated animate__fadeIn">
   <div
     class="flex flex-row items-center justify-center px-24 py-5 bg-green-700"
   >
     <div>
       <span class="font-bold text-white"
-        >EMERGENCIES? call 8988-1000 / 8988-7000 or Chat with us (Logos)</span
+        >EMERGENCIES? call +63454918970 or Chat with us (Logos)</span
       >
     </div>
   </div>
-  <div class="flex flex-row items-between justify-center gap-62 px-32 py-5">
+  <div
+    class="flex flex-row items-between sm:items-center justify-center gap-62 px-32 sm:px-10 md:px-10 py-5 shadow-xl"
+  >
     <div>
-        <Image src={TphLogo} alt={"tph-logo"} width={100} height={100}/>
+      <Image
+        src={TphLogo}
+        alt={"tph-logo"}
+        width={100}
+        height={100}
+        class="w-auto max-w-xs"
+        loading="lazy"
+      />
     </div>
-    <div class="flex flex-col items-center justify-center">
-        <div class="flex flex-row gap-10">
-            <a class="font-bold text-md" href="#">About us</a>
-            <a class="font-bold text-md" href="#">News</a>
-            <a class="font-bold text-md" href="#">Careers</a>
-            <a class="font-bold text-md" href="#">Contact Us</a>
-            <a class="font-bold text-md" href="#">Search</a>
-        </div>
-        <div class="flex flex-row gap-10 items-center justify-center">
-            <a class="font-bold text-md" href="#">OUR SERVICES</a>
-            <a class="font-bold text-md" href="#">FIND A DOCTOR</a>
-            <a class="font-bold text-md" href="#">LOGIN</a>
-            <a class="font-bold text-md bg-green-600 p-2 rounded-xl hover:bg-green-700 text-white" href="#">MAKE A BOOKING</a>
-        </div>
+    <div
+      class="flex flex-col items-center justify-center gap-2 lg:block hidden md:hidden"
+    >
+      <div class="flex flex-row gap-10">
+        <a class="font-bold text-md" href="#">About us</a>
+        <a class="font-bold text-md" href="#">News</a>
+        <a class="font-bold text-md" href="#">Careers</a>
+        <a class="font-bold text-md" href="#">Contact Us</a>
+        <a class="font-bold text-md" href="#">Search</a>
+      </div>
+      <div class="flex flex-row gap-10 items-center justify-center">
+        <a class="font-bold text-md" href="#">OUR SERVICES</a>
+        <a class="font-bold text-md" href="#">FIND A DOCTOR</a>
+        <a class="font-bold text-md" href="#">LOGIN</a>
+        <a
+          class="font-bold text-md bg-white p-2 rounded-xl hover:bg-green-700 text-dark hover:text-white border-3 border-green-700 transition duration-500 ease-in-out dark:bg-gray-800"
+          href="#">MAKE A BOOKING</a
+        >
+      </div>
     </div>
+    <button
+      class="btn lg:hidden sm:block md:block"
+      onclick="my_modal_1.showModal()"
+      ><Icon name={"mdi:hamburger-menu"} width={30} height={30} />
+    </button>
+    <dialog id="my_modal_1" class="modal">
+      <div class="modal-box">
+        <h3 class="text-lg font-bold">Navigation</h3>
+        <ul
+          tabindex="10"
+          class="dropdown-content menu bg-base-100 rounded-box z-50 w-full p-2 shadow-sm"
+        >
+          <li><a class="font-bold text-md" href="#">About us</a></li>
+          <li><a class="font-bold text-md" href="#">News</a></li>
+          <li><a class="font-bold text-md" href="#">Careers</a></li>
+          <li><a class="font-bold text-md" href="#">Contact Us</a></li>
+          <li><a class="font-bold text-md" href="#">Search</a></li>
+          <hr />
+          <li><a class="font-bold text-md" href="#">OUR SERVICES</a></li>
+          <li><a class="font-bold text-md" href="#">FIND A DOCTOR</a></li>
+          <li><a class="font-bold text-md" href="#">LOGIN</a></li>
+          <li><a class="font-bold text-md" href="#">Contact Us</a></li>
+          <li>
+            <a
+              class="font-bold text-md bg-white p-2 rounded-xl hover:bg-green-700 text-dark hover:text-white border-3 border-green-700 transition duration-500 ease-in-out dark:bg-gray-800"
+              href="#">MAKE A BOOKING</a
+            >
+          </li>
+        </ul>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
   </div>
 </div>
