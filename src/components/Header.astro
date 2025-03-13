@@ -1,28 +1,112 @@
 ---
 import "animate.css";
 import { Image } from "astro:assets";
-import TphLogo from "/public/images/tph-logo.png";
+import SdnLogo from "/public/images/sdn-logo.jpg";
 import { Icon } from "astro-icon/components";
 import SearchInput from "./SearchInput.astro";
+import navData from "../data/NavData.";
+import NavLink from "./NavLink.astro";
+
+const { pathname } = Astro.url;
+
+const data = [
+  {
+    icon: "mdi:email",
+    label: "mailto:example@domain.com",
+    url: "#",
+  },
+  {
+    icon: "mdi:location",
+    label: "Hospital Dr, Tarlac City, Tarlac",
+    url: null,
+  },
+  {
+    icon: "mdi:clock-outline",
+    label: "Mon - Fri: 8:00 am to 7:00 pm",
+    url: null,
+  },
+];
+
+const socials = [
+  {
+    icon: "mdi:facebook",
+    url: null,
+  },
+  {
+    icon: "mdi:twitter",
+    url: null,
+  },
+  {
+    icon: "mdi:instagram",
+    url: null,
+  },
+];
 ---
 
 <div class="animate__animated animate__fadeIn">
+  <!-- First row header -->
   <div
-    class="flex flex-row items-center justify-center px-24 py-5 bg-green-700"
+    class="flex sm:flex-row flex-col sm:items-between items-center justify-between px-24 py-5 bg-blue-700"
   >
-    <div>
-      <span class="font-bold text-white"
-        >EMERGENCIES? call +63454918970 or Chat with us (Logos)</span
-      >
+    <!-- Details -->
+    <div class="flex flex-wrap gap-2 items-center justify-center">
+      {
+        data.map((d, index) => {
+          return (
+            <div class="flex flex-row gap-1">
+              <div>
+                <Icon
+                  class={"text-white text-sm"}
+                  name={d.icon}
+                  width={30}
+                  height={30}
+                />
+              </div>
+              <div>
+                <a
+                  class="text-white font-bold text-sm hover:text-gray-400 cursor-pointer"
+                  href={d.url}
+                >
+                  {d.label}
+                </a>
+              </div>
+              {/* Add separator '|' if it's not the last item */}
+              {index !== data.length - 1 && (
+                <div>
+                  <span class="font-bold text-white">|</span>
+                </div>
+              )}
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <!-- Socials -->
+    <div class="flex flex-wrap gap-2">
+      {
+        socials.map((social) => {
+          return (
+            <div>
+              <a
+                href={social.url}
+                class="text-white hover:text-gray-400 cursor-pointer"
+              >
+                <Icon name={social.icon} width={30} height={30} />
+              </a>
+            </div>
+          );
+        })
+      }
     </div>
   </div>
   <div
-    class="flex flex-row items-center sm:items-between justify-center gap-62 px-32 sm:px-10 md:px-10 py-5 shadow-xl"
+    class="flex flex-row items-center sm:items-between justify-center gap-62 px-32 sm:px-10 md:px-10 py-5"
   >
     <div>
       <Image
-        src={TphLogo}
-        alt={"tph-logo"}
+        src={SdnLogo}
+        alt={"sdn-logo"}
         width={100}
         height={100}
         class="w-auto max-w-xs"
@@ -33,41 +117,22 @@ import SearchInput from "./SearchInput.astro";
       class="flex flex-col items-center justify-center gap-2 lg:block hidden md:hidden"
     >
       <div class="flex flex-row gap-10">
-        <a
-          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
-          href="#">About us</a
-        >
-        <a
-          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
-          href="#">News</a
-        >
-        <a
-          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
-          href="#">Careers</a
-        >
-        <a
-          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
-          href="#">Contact Us</a
-        >
+        {
+          navData.map((nav) => {
+            return (
+              <NavLink
+                name={nav.name}
+                path={nav.path}
+                isActive={
+                  nav.path === "/"
+                    ? pathname === nav.path
+                    : pathname.includes(nav.path)
+                }
+              />
+            );
+          })
+        }
         <SearchInput />
-      </div>
-      <div class="flex flex-row gap-10 items-center justify-center mt-2">
-        <a
-          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
-          href="#">OUR SERVICES</a
-        >
-        <a
-          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
-          href="#">FIND A DOCTOR</a
-        >
-        <a
-          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
-          href="#">LOGIN</a
-        >
-        <a
-          class="font-bold text-md bg-white p-2 rounded-xl hover:bg-green-700 text-dark hover:text-white border-3 border-green-700 transition duration-500 ease-in-out dark:bg-gray-800"
-          href="#">MAKE A BOOKING</a
-        >
       </div>
     </div>
     <button
@@ -82,11 +147,11 @@ import SearchInput from "./SearchInput.astro";
           tabindex="10"
           class="dropdown-content menu bg-base-100 rounded-box z-50 w-full p-2 shadow-sm"
         >
-          <li><a class="font-bold text-md" href="#">About us</a></li>
+          <li><a class="font-bold text-md" href="/">Home</a></li>
+          <li><a class="font-bold text-md" href="/about">About us</a></li>
           <li><a class="font-bold text-md" href="#">News</a></li>
           <li><a class="font-bold text-md" href="#">Careers</a></li>
           <li><a class="font-bold text-md" href="#">Contact Us</a></li>
-          <li><a class="font-bold text-md" href="#">Search</a></li>
           <hr />
           <li><a class="font-bold text-md" href="#">OUR SERVICES</a></li>
           <li><a class="font-bold text-md" href="#">FIND A DOCTOR</a></li>
@@ -94,7 +159,7 @@ import SearchInput from "./SearchInput.astro";
           <li><a class="font-bold text-md" href="#">Contact Us</a></li>
           <li>
             <a
-              class="font-bold text-md bg-white p-2 rounded-xl hover:bg-green-700 text-dark hover:text-white border-3 border-green-700 transition duration-500 ease-in-out dark:bg-gray-800"
+              class="font-bold text-md bg-white p-2 rounded-xl hover:bg-blue-700 text-dark hover:text-white border-3 border-blue-700 transition duration-500 ease-in-out dark:bg-gray-800 dark:hover:bg-gray-900"
               href="#">MAKE A BOOKING</a
             >
           </li>
@@ -107,5 +172,8 @@ import SearchInput from "./SearchInput.astro";
         </div>
       </div>
     </dialog>
+  </div>
+  <div class="lg:hidden sm:block md:block py-2">
+    <SearchInput />
   </div>
 </div>
