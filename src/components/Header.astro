@@ -3,6 +3,7 @@ import "animate.css";
 import { Image } from "astro:assets";
 import TphLogo from "/public/images/tph-logo.png";
 import { Icon } from "astro-icon/components";
+import SearchInput from "./SearchInput.astro";
 ---
 
 <div class="animate__animated animate__fadeIn">
@@ -16,7 +17,7 @@ import { Icon } from "astro-icon/components";
     </div>
   </div>
   <div
-    class="flex flex-row items-between sm:items-center justify-center gap-62 px-32 sm:px-10 md:px-10 py-5 shadow-xl"
+    class="flex flex-row items-center sm:items-between justify-center gap-62 px-32 sm:px-10 md:px-10 py-5 shadow-xl"
   >
     <div>
       <Image
@@ -32,16 +33,37 @@ import { Icon } from "astro-icon/components";
       class="flex flex-col items-center justify-center gap-2 lg:block hidden md:hidden"
     >
       <div class="flex flex-row gap-10">
-        <a class="font-bold text-md" href="#">About us</a>
-        <a class="font-bold text-md" href="#">News</a>
-        <a class="font-bold text-md" href="#">Careers</a>
-        <a class="font-bold text-md" href="#">Contact Us</a>
-        <a class="font-bold text-md" href="#">Search</a>
+        <a
+          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
+          href="#">About us</a
+        >
+        <a
+          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
+          href="#">News</a
+        >
+        <a
+          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
+          href="#">Careers</a
+        >
+        <a
+          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
+          href="#">Contact Us</a
+        >
+        <SearchInput />
       </div>
-      <div class="flex flex-row gap-10 items-center justify-center">
-        <a class="font-bold text-md" href="#">OUR SERVICES</a>
-        <a class="font-bold text-md" href="#">FIND A DOCTOR</a>
-        <a class="font-bold text-md" href="#">LOGIN</a>
+      <div class="flex flex-row gap-10 items-center justify-center mt-2">
+        <a
+          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
+          href="#">OUR SERVICES</a
+        >
+        <a
+          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
+          href="#">FIND A DOCTOR</a
+        >
+        <a
+          class="font-bold text-md hover:border-green-600 hover:border-3 transition duration-500 ease-in-out p-2 rounded-xl"
+          href="#">LOGIN</a
+        >
         <a
           class="font-bold text-md bg-white p-2 rounded-xl hover:bg-green-700 text-dark hover:text-white border-3 border-green-700 transition duration-500 ease-in-out dark:bg-gray-800"
           href="#">MAKE A BOOKING</a

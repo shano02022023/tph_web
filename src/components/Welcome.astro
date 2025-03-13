@@ -4,7 +4,7 @@ import "animate.css";
 import ContactInfo from "../components/navigations/ContactInfo.astro";
 import Overview from "../components/navigations/Overview.astro";
 import VisitingInfo from "../components/navigations/VisitingInfo.astro";
-import DeptServices from "../components/navigations/DeptServices.astro";
+import Services from "../components/navigations/Services.astro";
 import Amenities from "../components/navigations/Amenities.astro";
 import { Image } from "astro:assets";
 import TphBuilding from "/public/images/13.jpg";
@@ -12,7 +12,7 @@ import TphBuilding from "/public/images/13.jpg";
 
 <div id="container">
   <div
-    class="grid lg:grid-cols-2 sm:grid-rows-1 md:grid-rows-1 gap-5 px-24 pt-10"
+    class="grid lg:grid-cols-2 sm:grid-rows-1 md:grid-rows-1 gap-5 px-5 lg:px-24 pt-10"
   >
     <Image
       src={TphBuilding}
@@ -28,10 +28,12 @@ import TphBuilding from "/public/images/13.jpg";
         Tarlac Provincial Hospital
       </p>
       <p style="font-size: 15px; text-align: center;">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-        voluptatibus illum facilis sapiente. Quas, harum odio culpa est rem
-        deserunt libero quod doloribus perspiciatis quam laborum temporibus nam
-        enim cupiditate!
+        Established in 1923, Tarlac Provincial Hospital was the first provincial
+        hospital built under the Republic Act. No. 2114 as amended by Act. No.
+        3168. It is situated in a 9-hectare concrete fence compound. It boasts a
+        3-storey main hospital building, a power plant with a generator, a
+        provincial warehouse, an OPD building, an MCH Center, a maintenance shop
+        and laundry room, and a basketball and volleyball court.
       </p>
     </div>
   </div>
@@ -52,8 +54,8 @@ import TphBuilding from "/public/images/13.jpg";
     Visiting Information
   </a>
   <span class="text-dark text-3xl">|</span>
-  <a href="#dept-services" class="text-dark hover:text-green-600 text-3xl">
-    Department & Services
+  <a href="#services" class="text-dark hover:text-green-600 text-3xl">
+    Services
   </a>
   <span class="text-dark text-3xl">|</span>
   <a href="#amenities" class="text-dark hover:text-green-600 text-3xl">
@@ -61,16 +63,14 @@ import TphBuilding from "/public/images/13.jpg";
   </a>
 </div>
 
-<div
-  class="flex flex-col w-full gap-10 px-24 pb-12 pt-12 animate__animated animate__fadeIn"
->
-  <ContactInfo />
+<div class="flex flex-col w-full gap-10 px-5 lg:px-24 pb-12 pt-12 animate__animated animate__fadeIn">
+    <ContactInfo />
   <hr />
-  <Overview />
+    <Overview />
   <hr />
-  <VisitingInfo />
+    <VisitingInfo />
   <hr />
-  <DeptServices />
+    <Services />
   <hr />
-  <Amenities />
+    <Amenities />
 </div>
