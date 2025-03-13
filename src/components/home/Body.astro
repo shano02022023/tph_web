@@ -1,0 +1,135 @@
+---
+import "animate.css";
+import { Icon } from "astro-icon/components";
+// navigations
+import { Image } from "astro:assets";
+import PrimaryButton from "../PrimaryButton.astro";
+import DoctorsImage from "/public/images/doctors.jpg";
+const services = await Astro.glob("../../pages/home/*.md");
+---
+
+<div>
+  <div
+    class="relative bg-[url('/images/home/banner_image.jpg')] bg-cover bg-end h-[80vh] flex items-center justify-center"
+  >
+    <div class="absolute inset-0 bg-blue-400 opacity-85"></div>
+    <div class="relative z-10 text-white p-4">
+      <div
+        class="grid lg:grid-cols-2 sm:grid-rows-1 md:grid-rows-1 gap-5 px-5 lg:px-24 pt-10"
+      >
+        <div
+          class="flex flex-col justify-center items-start animate__animated animate__fadeInLeft gap-2"
+        >
+          <span class="text-blue-700 font-bold text-lg sm:text-5xl uppercase">
+            Doctor ng mahirap ay doctor din ng mayaman
+          </span>
+          <span class="text-dark font-bold text-md sm:text-3xl">
+            Healthy life
+          </span>
+          <p class="text-dark overflow-ellipsis">
+            At SDN, we are committed to providing compassionate, comprehensive,
+            and high-quality healthcare services to meet the needs of our
+            community. Our experienced team of doctors, nurses, and healthcare
+            professionals is dedicated to delivering personalized care that
+            promotes your well-being and recovery. With state-of-the-art
+            facilities, cutting-edge technology, and a patient-centered
+            approach, we ensure that you receive the best possible care in a
+            safe and comfortable environment. Whether you're seeking routine
+            check-ups, emergency care, or specialized treatment, SDN is here to
+            support you every step of the way. Your health is our priority.
+            Explore our services, meet our expert team, and learn how we can
+            support you in living a healthy, fulfilling life.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Services section -->
+  <div class="flex flex-col gap-10">
+    <div
+      class="h-full flex flex-col items-center px-8 lg:px-24 pt-32 pb-12 bg-cover bg-center bg-white dark:bg-gray-800"
+    >
+      <span
+        class="uppercase text-5xl text-blue-700 dark:text-gray-200 font-bold text-dark animate__animated animate__fadeInDown text-center"
+      >
+        Our Services
+      </span>
+      <span
+        class="text-lg text-dark dark:text-white animate__animated animate__fadeInDown text-center"
+      >
+        Comprehensive Healthcare Services Designed to Meet Your Unique Needs and
+        Support Your Well-Being at Every Stage of Life
+      </span>
+    </div>
+    <div
+      class="flex flex-wrap gap-10 space-x-6 justify-center p-12 animate__animated animate__fadeIn"
+    >
+      {
+        services.map((service) => {
+          return (
+            <div>
+              <div class="max-w-sm rounded shadow-lg hover:scale-125 transition ease-in duration-700">
+                <Image
+                  alt={service.frontmatter.title}
+                  width={500}
+                  height={500}
+                  src={service.frontmatter.img}
+                />
+
+                <div class="px-6 py-4">
+                  <div class="font-bold text-xl mb-2">
+                    {service.frontmatter.title}
+                  </div>
+                  <p class="text-gray-700 text-base">
+                    {service.frontmatter.content}
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  <!-- Appointment System Custormer Service Section -->
+  <div
+    class="grid lg:grid-cols-2 sm:grid-rows-1 md:grid-rows-1 px-8 lg:px-24 pb-10 pt-8"
+  >
+    <div class="px-50 flex flex-col gap-5">
+      <div>
+        <span class="text-5xl text-blue-900"
+          >Surprise your body with <span class="text-blue-400">extra care</span
+          ></span
+        >
+        <p class="text-md text-gray-900">
+          Give your body the attention it deserves with our specialized
+          treatments and personalized care. We go beyond the basics to provide
+          exceptional health services that promote wellness, recovery, and
+          overall vitality. Experience the difference with our dedicated
+          approach to your health.
+        </p>
+      </div>
+      <div class="flex flex-row gap-5 items-center">
+        <div class="bg-blue-500 rounded-4xl p-2">
+          <Icon
+            class={"text-white"}
+            name={"mdi:phone"}
+            width={40}
+            height={40}
+          />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-md text-gray-900 uppercase">CALL ANYTIME 24/7</span>
+          <span class="text-lg font-bold text-gray-900 uppercase"
+            >+63454918970</span
+          >
+        </div>
+      </div>
+      <PrimaryButton label="Learn More" />
+    </div>
+    <div>
+      <Image class={'shadow-xl rounded-xl hover:scale-125 transition duration-150 ease-in-out'} src={DoctorsImage} alt="Doctors" width={500} height={500} />
+    </div>
+  </div>
+</div>
