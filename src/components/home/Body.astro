@@ -94,9 +94,9 @@ const services = await Astro.glob("../../pages/home/*.md");
 
   <!-- Appointment System Custormer Service Section -->
   <div
-    class="grid lg:grid-cols-2 sm:grid-rows-1 md:grid-rows-1 px-8 lg:px-24 pb-10 pt-8"
+    class="grid lg:grid-cols-2 sm:grid-rows-1 md:grid-rows-1 px-8 lg:px-24 pb-10 pt-8 gap-10 items-center justify-center"
   >
-    <div class="px-50 flex flex-col gap-5">
+    <div class="px-5 lg:px-24 flex flex-col gap-5">
       <div>
         <span class="text-5xl text-blue-900"
           >Surprise your body with <span class="text-blue-400">extra care</span
@@ -128,8 +128,14 @@ const services = await Astro.glob("../../pages/home/*.md");
       </div>
       <PrimaryButton label="Learn More" />
     </div>
-    <div>
-      <Image class={'shadow-xl rounded-xl hover:scale-125 transition duration-150 ease-in-out'} src={DoctorsImage} alt="Doctors" width={500} height={500} />
+    <div class="w-full flex items-center justify-center">
+      <Image
+        class={"shadow-xl rounded-xl hover:scale-125 transition duration-150 ease-in-out"}
+        src={DoctorsImage}
+        alt="Doctors"
+        width={500}
+        height={500}
+      />
     </div>
   </div>
 </div>
