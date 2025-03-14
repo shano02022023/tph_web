@@ -46,7 +46,7 @@ const socials = [
 <div class="animate__animated animate__fadeIn">
   <!-- First row header -->
   <div
-    class="flex sm:flex-row flex-col sm:items-between items-center justify-between px-24 py-5 bg-blue-700"
+    class="flex sm:flex-row flex-col sm:items-between items-center justify-between px-24 py-5 bg-blue-700 dark:bg-blue-700"
   >
     <!-- Details -->
     <div class="flex flex-wrap gap-2 items-center justify-center">
@@ -102,7 +102,7 @@ const socials = [
     </div>
   </div>
   <div
-    class="flex flex-row items-center sm:items-between justify-center gap-62 px-32 sm:px-10 md:px-10 py-5"
+    class="flex flex-row items-center sm:items-between justify-center gap-62 px-32 sm:px-10 md:px-10 py-5 dark:bg-white"
   >
     <div>
       <Image
@@ -137,33 +137,34 @@ const socials = [
       </div>
     </div>
     <button
-      class="btn lg:hidden sm:block md:block"
+      class="btn lg:hidden sm:block md:block dark:bg-white dark:text-gray-400"
       onclick="my_modal_1.showModal()"
       ><Icon name={"mdi:hamburger-menu"} width={30} height={30} />
     </button>
     <dialog id="my_modal_1" class="modal">
-      <div class="modal-box">
-        <h3 class="text-lg font-bold">Navigation</h3>
+      <div class="modal-box dark:bg-white">
+        <h3 class="text-lg font-bold dark:text-gray-900">Navigation</h3>
         <ul
           tabindex="10"
-          class="dropdown-content menu bg-base-100 rounded-box z-50 w-full p-2 shadow-sm"
+          class="dropdown-content menu bg-base-100 rounded-box z-50 w-full p-2 shadow-sm dark:bg-white"
         >
-          <li><a class="font-bold text-md" href="/">Home</a></li>
-          <li><a class="font-bold text-md" href="/about">About us</a></li>
-          <li><a class="font-bold text-md" href="#">News</a></li>
-          <li><a class="font-bold text-md" href="#">Careers</a></li>
-          <li><a class="font-bold text-md" href="#">Contact Us</a></li>
-          <hr />
-          <li><a class="font-bold text-md" href="#">OUR SERVICES</a></li>
-          <li><a class="font-bold text-md" href="#">FIND A DOCTOR</a></li>
-          <li><a class="font-bold text-md" href="#">LOGIN</a></li>
-          <li><a class="font-bold text-md" href="#">Contact Us</a></li>
-          <li>
-            <a
-              class="font-bold text-md bg-white p-2 rounded-xl hover:bg-blue-700 text-dark hover:text-white border-3 border-blue-700 transition duration-500 ease-in-out dark:bg-gray-800 dark:hover:bg-gray-900"
-              href="#">MAKE A BOOKING</a
-            >
-          </li>
+          {
+            navData.map((nav) => {
+              return (
+                <li>
+                  <NavLink
+                    name={nav.name}
+                    path={nav.path}
+                    isActive={
+                      nav.path === "/"
+                        ? pathname === nav.path
+                        : pathname.includes(nav.path)
+                    }
+                  />
+                </li>
+              );
+            })
+          }
         </ul>
         <div class="modal-action">
           <form method="dialog">
@@ -174,7 +175,7 @@ const socials = [
       </div>
     </dialog>
   </div>
-  <div class="lg:hidden sm:block md:block py-2">
+  <div class="lg:hidden sm:block md:block py-2 dark:bg-white">
     <SearchInput />
   </div>
 </div>

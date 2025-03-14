@@ -9,15 +9,15 @@ const navData = [
   },
   {
     name: "Consultation",
-    path: "#",
+    path: "/consultation",
   },
   {
     name: "Other Services",
-    path: "#",
+    path: "/services",
   },
   {
     name: "Clinical Center",
-    path: "#",
+    path: "/clinicalcenter",
   },
 ];
 

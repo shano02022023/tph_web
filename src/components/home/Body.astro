@@ -9,6 +9,7 @@ const services = await Astro.glob("../../pages/home/*.md");
 ---
 
 <div>
+  <!-- banner section -->
   <div
     class="relative bg-[url('/images/home/banner_image.jpg')] bg-cover bg-end h-[80vh] flex items-center justify-center"
   >
@@ -21,24 +22,12 @@ const services = await Astro.glob("../../pages/home/*.md");
           class="flex flex-col justify-center items-start animate__animated animate__fadeInLeft gap-2"
         >
           <span class="text-blue-700 font-bold text-lg sm:text-5xl uppercase">
-            Doctor ng mahirap ay doctor din ng mayaman
-          </span>
-          <span class="text-dark font-bold text-md sm:text-3xl">
-            Healthy life
+            Ang doctor ng mayaman ay doctor din ng mahirap
           </span>
           <p class="text-dark overflow-ellipsis">
-            At SDN, we are committed to providing compassionate, comprehensive,
-            and high-quality healthcare services to meet the needs of our
-            community. Our experienced team of doctors, nurses, and healthcare
-            professionals is dedicated to delivering personalized care that
-            promotes your well-being and recovery. With state-of-the-art
-            facilities, cutting-edge technology, and a patient-centered
-            approach, we ensure that you receive the best possible care in a
-            safe and comfortable environment. Whether you're seeking routine
-            check-ups, emergency care, or specialized treatment, SDN is here to
-            support you every step of the way. Your health is our priority.
-            Explore our services, meet our expert team, and learn how we can
-            support you in living a healthy, fulfilling life.
+            Ang SDN ay isang programa ng pamahalaang panlalawigan ng tarlac na
+            naglalayong ihatid ang dekalidad na serbisyong pangkalusugan para sa
+            lahat ng mga tarlakenyo
           </p>
         </div>
       </div>
@@ -47,15 +36,15 @@ const services = await Astro.glob("../../pages/home/*.md");
   <!-- Services section -->
   <div class="flex flex-col gap-10">
     <div
-      class="h-full flex flex-col items-center px-8 lg:px-24 pt-32 pb-12 bg-cover bg-center bg-white dark:bg-gray-800"
+      class="h-full flex flex-col items-center px-8 lg:px-24 pt-32 pb-12 bg-cover bg-center bg-white"
     >
       <span
-        class="uppercase text-5xl text-blue-700 dark:text-gray-200 font-bold text-dark animate__animated animate__fadeInDown text-center"
+        class="uppercase text-5xl text-blue-700 font-bold text-dark animate__animated animate__fadeInDown text-center"
       >
-        Our Services
+        Explore More About Our Personalized Care
       </span>
       <span
-        class="text-lg text-dark dark:text-white animate__animated animate__fadeInDown text-center"
+        class="text-lg text-gray-900 animate__animated animate__fadeInDown text-center"
       >
         Comprehensive Healthcare Services Designed to Meet Your Unique Needs and
         Support Your Well-Being at Every Stage of Life
@@ -68,7 +57,7 @@ const services = await Astro.glob("../../pages/home/*.md");
         services.map((service) => {
           return (
             <div>
-              <div class="max-w-sm rounded shadow-lg hover:scale-125 transition ease-in duration-700">
+              <div class="max-w-sm rounded shadow-lg hover:scale-105 transition ease-in duration-700">
                 <Image
                   alt={service.frontmatter.title}
                   width={500}
@@ -77,7 +66,7 @@ const services = await Astro.glob("../../pages/home/*.md");
                 />
 
                 <div class="px-6 py-4">
-                  <div class="font-bold text-xl mb-2">
+                  <div class="font-bold text-xl mb-2 dark:text-gray-900">
                     {service.frontmatter.title}
                   </div>
                   <p class="text-gray-700 text-base">
@@ -126,11 +115,13 @@ const services = await Astro.glob("../../pages/home/*.md");
           >
         </div>
       </div>
-      <PrimaryButton label="Learn More" />
+      <PrimaryButton>
+        <a href="/services">Learn More</a>
+      </PrimaryButton>
     </div>
     <div class="w-full flex items-center justify-center">
       <Image
-        class={"shadow-xl rounded-xl hover:scale-125 transition duration-150 ease-in-out"}
+        class={"shadow-xl rounded-xl hover:scale-105 transition duration-500 ease-in-out"}
         src={DoctorsImage}
         alt="Doctors"
         width={500}
