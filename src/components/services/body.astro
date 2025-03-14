@@ -1,44 +1,224 @@
 ---
-const services = [
-    {
-        title: "INTERNAL MEDECINE",
-        items: [
-            'General Internal Medicine',
-            'Gastroentrerology',
-            'Pulmonology',
-            'Nephrology',
-            'oncology',
-        ]
-    },
-    {
-        title: "surgery",
-        items: [
-            'General Surgery',
-            'Urology',
-            'Colorectal Surgery',
-            'Neurosurgery',
-            'Orthopedic Surgery',
-            'Ear,Nose, and Throat Surgery',
-        ]
-    },
-    {
-        title: "OBSTETRICS - GYNECOLOGY",
-        items: [
-            'General Obstetrics - Gynecology',
-            ''
-        ]
-    },
-    {
-        title: "PEDIATRICS",
-    },
-    {
-        title: "FAMILY MEDICINE",
-    }
+import { Icon } from "astro-icon/components";
 
-]
+const services = [
+  {
+    title: "INTERNAL MEDECINE",
+    items: [
+      "General Internal Medicine",
+      "Gastroentrerology",
+      "Pulmonology",
+      "Nephrology",
+      "oncology",
+    ],
+  },
+  {
+    title: "surgery",
+    items: [
+      "General Surgery",
+      "Urology",
+      "Colorectal Surgery",
+      "Neurosurgery",
+      "Orthopedic Surgery",
+      "Ear,Nose, and Throat Surgery",
+    ],
+  },
+  {
+    title: "OBSTETRICS - GYNECOLOGY",
+    items: ["General Obstetrics - Gynecology", "Gynecologic Oncology"],
+  },
+  {
+    title: "Pediatrics",
+    items: [],
+  },
+  {
+    title: "Family Medicine",
+    items: [],
+  },
+];
+
+const serviceHours = [
+  {
+    title: "Emergency Room - 24 Hours",
+    items: [],
+  },
+  {
+    title: "Laboratoy - 24 Hours",
+    items: [],
+  },
+  {
+    title: "Pharmacy - 24 Hours",
+    items: [],
+  },
+  {
+    title: "Radiology (X-ray) - 24 Hours",
+    items: [],
+  },
+  {
+    title: "Ultrasound - All Schedule Cut-off 4:00 pm",
+    items: [
+      "Pelvic - Mon-Fri 8:00am-4:00pm",
+      "Abdominal - Mon 1pm, Tue 1:30pm, Wed 10:30 am, Thu 1:30pm, Fri 12:30 pm",
+      "Renal - Mon 1pm, Tue 1:30pm, Wed 10:30 am, Thu 1:30pm, Fri 12:30 pm",
+      "Chest - Mon 1pm, Tue 1:30pm, Wed 10:30 am, Thu 1:30pm, Fri 12:30 pm",
+      "Transvaginal - Mon 1pm, Tue 1:30pm, Wed 10:30 am, Thu 1:30pm, Fri 12:30 pm",
+      "*No Ultrasound During Holidays",
+    ],
+  },
+  {
+    title: "Peritoneal Dialysis - Mon-Fri 7:00 am to 11:00 am",
+    items: [],
+  },
+  {
+    title: "Endoscopy/Colonoscopy - Mon-Fri 8:00 am to 5:00 pm",
+    items: [],
+  },
+  {
+    title: "TPH cares - Mon-Fri 8:00 am - 5:00 pm",
+    items: ["(Counseling, Testing and Treatment)"],
+  },
+  {
+    title: "Out Patient Department (OPD) - Mon - Fri 8:00 am to 5:00 pm",
+    items: [
+      "ENT - Tue 1:00pm-4:00pm",
+      "Orthopedics - Tue 8:00 am-12nn",
+      "Pain Clinic - Thu 1:00pm-4:00pm",
+      "Hematology - Thu 10:00am-3:00pm",
+      "Urology - Thu 1:00pm-4:00pm",
+      "Family Planning - Mon-Fri 8:00am-5:00pm",
+      "Prenatal - Mon-Wed-Fri 8:00am-5:00pm",
+      "Obstetrics - Tue-Thu 1:00 pm-4:00pm",
+      "Gynecology - Tue-Thu 1:00pm-4:00 pm",
+      "Internal Medicine - Mon-Wed-Fri 1:00pm-4:00pm",
+      "Pediatrics - Tue-Thu 8:00am-12:00nn",
+      "Surgery - Mon-Fri 8:00 am-5:00pm",
+      "Eye Center Mon-Fri 8:00am-5:00pm",
+      "Silip Sakit Program - Mon-Fri 8:00am-5:00pm",
+    ],
+  },
+  {
+    title: "TB DOTS - Mon-Sun 8:00 am to 5:00 pm",
+    items: ["Satellite Treatment Center for MDR"],
+  },
+  {
+    title: "Medical Social Services - Mon-Sat 8:00 am to 5:00 pm",
+    items: ["Holidays 11:00am-5:00pm"],
+  },
+  {
+    title: "Malasakit Center - Mon-Fri 8:00 am to 5:00 pm",
+    items: [],
+  },
+  {
+    title: "Medical Records - Mon-Fri 8:00 am to 5:00 pm",
+    items: ["Birth Certificate - 8:00 am-12:00nn (Interview)"],
+  },
+  {
+    title: "Billing - Mon-Sat 8:00 am to 5:00 pm",
+    items: ["Holidays 8:00am-12:00nn"],
+  },
+];
 ---
 
-<div>
-
-
+<div class="flex flex-col gap-10">
+  <!-- banner section -->
+  <div
+    class="relative bg-[url('/images/services/banner_image.jpg')] bg-cover bg-center h-[50vh] flex items-center justify-center"
+  >
+    <div class="absolute inset-0 bg-blue-400 opacity-85"></div>
+    <div class="relative z-10 text-white p-4">
+      <div>
+        <div
+          class="h-full flex flex-col items-center px-8 lg:px-24 pt-32 pb-12 bg-cover bg-center gap-10"
+        >
+          <span
+            class="uppercase text-5xl text-white dark:text-white font-bold animate__animated animate__fadeInDown text-center"
+          >
+            Services Offered
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- services section -->
+  <div
+    class="grid lg:grid-cols-2 sm:grid-rows-1 md:grid-rows-1 px-8 lg:px-24 py-20 gap-2"
+  >
+    <div class="flex flex-col gap-2">
+      <span class="uppercase text-md sm:text-3xl text-blue-700 font-bold">Services</span>
+      <div>
+        {
+          services.map((service) => {
+            return (
+              <div class="collapse bg-base-100 border-base-300 dark:bg-base-100 dark:border-base-300 border dark:bg-white">
+                <input type="checkbox" />
+                <div class="collapse-title font-semibold text-white bg-blue-600 dark:bg-blue-600 flex flex-wrap items-betweent justify-between text-sm sm:text-lg">
+                  <div class="uppercase">{service.title}</div>{" "}
+                  <Icon name={"mdi:arrow-down"} width={30} height={30} />
+                </div>
+                <div class="collapse-content text-sm border-3 border-blue-600 dark:border-blue-600 dark:border-blue-600 dark:bg-white">
+                  <ul class="dropdown-content menu bg-base-100 dark:bg-base-100 dark:border-base-100 rounded-box z-50 w-full p-2 shadow-sm dark:bg-white gap-2">
+                    {service.items.map((item) => {
+                      return (
+                        <li class="font-bold text-lg dark:text-gray-900 dark:bg-white text-sm sm:text-lg">
+                          <div class="flex">
+                            <Icon
+                              class={"text-green-600"}
+                              name={"mdi:check-circle"}
+                              width={30}
+                              height={30}
+                            />{" "}
+                            {item}
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+    <div class="flex flex-col bg-blue-600 p-10 rounded-xl gap-2">
+      <span class="uppercase text-md sm:text-3xl text-white font-bold">Service Hours</span>
+      <div>
+        {
+          serviceHours.map((service) => {
+            return (
+              <div class="collapse bg-white border-3 border-blue-600 rounded-3xl">
+                <input type="checkbox" />
+                <div class="collapse-title font-semibold text-white bg-white flex flex-wrap items-betweent justify-between text-sm sm:text-lg">
+                  <div class="uppercase text-gray-900">{service.title}</div>{" "}
+                  <Icon
+                    class={"text-gray-900"}
+                    name={"mdi:arrow-down"}
+                    width={30}
+                    height={30}
+                  />
+                </div>
+                <div class="collapse-content text-sm border-3 border-blue-600 rounded-xl bg-white">
+                  <ul class="dropdown-content menu bg-white rounded-box z-50 w-full shadow-sm flex gap-2">
+                    {service.items.map((item) => {
+                      return (
+                        <div class="flex items-center dark:text-gray-900 text-sm sm:text-lg">
+                          <Icon
+                            class={"text-blue-600"}
+                            name={"mdi:dot"}
+                            width={50}
+                            height={50}
+                          />{" "}
+                          <span>{item}</span>
+                        </div>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
 </div>

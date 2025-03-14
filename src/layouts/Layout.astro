@@ -2,7 +2,7 @@
 import GlobalStyles from "../components/GlobalStyles.astro";
 import "../styles/global.css";
 
-const { title = "SDN" } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -12,10 +12,10 @@ const { title = "SDN" } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/images/sdn-logo.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>SDN | {title}</title>
+    <title>SDN { title && `| ${title}`}</title>
     <GlobalStyles/>
   </head>
-  <body>
+  <body class="dark:bg-white">
     <slot />
   </body>
 </html>
